@@ -287,13 +287,24 @@ const toggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navbar = document.getElementById("navbar");
 
-// Mobile toggle
+/* ================= MOBILE TOGGLE ================= */
 toggle.addEventListener("click", ()=>{
   toggle.classList.toggle("active");
   navLinks.classList.toggle("show");
 });
 
-// Shrink on scroll
+/* ================= AUTO CLOSE ON LINK CLICK ================= */
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+
+    // Remove mobile menu
+    navLinks.classList.remove("show");
+    toggle.classList.remove("active");
+
+  });
+});
+
+/* ================= SHRINK ON SCROLL ================= */
 window.addEventListener("scroll", ()=>{
   if(window.scrollY > 50){
     navbar.classList.add("shrink");
@@ -302,15 +313,18 @@ window.addEventListener("scroll", ()=>{
   }
 });
 
-// Active link highlight
+/* ================= ACTIVE LINK ================= */
 document.querySelectorAll(".nav-links a").forEach(link=>{
   link.addEventListener("click", ()=>{
-    document.querySelectorAll(".nav-links a").forEach(a=>a.classList.remove("active"));
+    document.querySelectorAll(".nav-links a")
+      .forEach(a=>a.classList.remove("active"));
     link.classList.add("active");
   });
 });
 
 </script>
+
+
 <!-- ================= CLEAN HERO SECTION ================= -->
 <section class="hero-clean" id="home">
 
