@@ -739,7 +739,7 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
 
         <p class="founder-quote">
           “Regulatory compliance should be automated, intelligent, 
-          and audit-ready — not manual and reactive.”
+          and audit-ready not manual and reactive.”
         </p>
       </div>
 
@@ -758,7 +758,7 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
           With direct exposure to evolving UK PMS regulations under SI 2024/1368, 
           he recognised a critical infrastructure gap for SMEs struggling to 
           operationalise continuous surveillance and trend reporting. 
-          This insight led to the creation of VigiChain MedSecure — 
+          This insight led to the creation of VigiChain MedSecure 
           a cloud-first, AI-driven compliance platform.
         </p>
 
@@ -958,7 +958,7 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
       <div class="features-divider"></div>
 
       <p class="features-description">
-        The platform is designed as an intelligent compliance engine —
+        The platform is designed as an intelligent compliance engine
         combining automation, verification integrity, and predictive
         monitoring into a single secure infrastructure layer.
       </p>
@@ -1381,7 +1381,7 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
 
     <p class="cp-intro">
       VigiChain embeds regulatory discipline directly into execution logic.
-      Compliance is not reviewed after activity — it operates within
+      Compliance is not reviewed after activity it operates within
       the operational framework itself.
     </p>
 
@@ -1648,15 +1648,7 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
   overflow:hidden;
 }
 
-/* Vertical Accent */
-.security-side-accent{
-  position:absolute;
-  left:0;
-  top:0;
-  height:100%;
-  width:6px;
-  background:var(--neon-green);
-}
+
 
 /* Corner Design */
 .security-corner-shape{
@@ -1765,20 +1757,91 @@ document.querySelectorAll(".nav-links a").forEach(link=>{
   color:var(--light-grey);
 }
 
-/* Responsive */
+/* ================= ULTRA PREMIUM MOBILE SECURITY ================= */
 @media(max-width:900px){
+
+  /* Section spacing refined */
   .security-ultra{
-    padding:90px 20px;
+    padding:80px 22px;
+  }
+
+  /* Center heading area */
+  .security-wrapper{
+    text-align:center;
+  }
+
+  .security-label{
+    font-size:11px;
+    letter-spacing:0.3em;
   }
 
   .security-heading{
-    font-size:28px;
+    font-size:26px;
+    line-height:1.25;
+    margin:18px 0 12px;
   }
 
+  /* Center divider */
+  .security-heading-divider{
+    margin:0 auto 28px;
+    width:90px;
+    height:2px;
+  }
+
+  /* Paragraph refinement */
+  .security-intro{
+    font-size:14px;
+    line-height:1.7;
+    max-width:100%;
+  }
+
+  .security-intro.muted{
+    margin-bottom:40px;
+  }
+
+  /* Premium stacked grid */
   .security-grid{
     grid-template-columns:1fr;
-    gap:35px;
+    gap:28px;
   }
+
+  /* Convert blocks into elegant compact cards */
+  .security-block{
+    background:rgba(255,255,255,0.04);
+    padding:18px 20px 18px 26px;
+    border-radius:10px;
+    backdrop-filter:blur(6px);
+  }
+
+  /* Subtle left indicator line */
+  .security-block::before{
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+    width:4px;
+    height:28px;
+    border-radius:2px;
+    box-shadow:none;
+  }
+
+  /* Remove hover lift on mobile */
+  .security-block:hover{
+    transform:none;
+  }
+
+  .security-block h4{
+    font-size:15px;
+  }
+
+  .security-block p{
+    font-size:13px;
+  }
+
+  /* Reduce heavy decorative elements */
+  .security-corner-shape{
+    opacity:0.03;
+  }
+
 }
 </style>
 
@@ -2596,18 +2659,64 @@ document.addEventListener("DOMContentLoaded", function(){
   margin-bottom:10px;
 }
 
-/* ================= MOBILE ================= */
+/* ================= ADVANCED MOBILE FOOTER ================= */
 @media(max-width:900px){
+
+  .green-footer{
+    padding:40px 20px 20px;
+  }
+
+  /* Stack layout properly */
   .footer-container{
     flex-direction:column;
+    align-items:center;
     text-align:center;
+    gap:28px;
   }
+
+  /* Brand */
+  .footer-brand h3{
+    font-size:20px;
+  }
+
+  .footer-brand p{
+    font-size:13px;
+    max-width:100%;
+    line-height:1.7;
+  }
+
+  /* Links as clean grid */
   .footer-links{
+    display:grid;
+    grid-template-columns:repeat(2,auto);
+    gap:14px 30px;
     justify-content:center;
   }
-  .footer-brand p{
-    max-width:100%;
+
+  .footer-links a{
+    font-size:14px;
+    padding:4px 0;
   }
+
+  /* Status centered */
+  .footer-status{
+    font-size:13px;
+    padding:8px 18px;
+  }
+
+  /* Bottom text */
+  .footer-bottom{
+    font-size:12px;
+    margin-top:20px;
+  }
+
+  /* Reduce heavy background visuals on mobile */
+  .footer-glow,
+  .footer-diagonal,
+  .footer-grid{
+    opacity:0.15;
+  }
+
 }
 </style>
 
