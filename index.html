@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Platform</title>
+
+<style>
+
+/* ================= COLORS ================= */
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --blend-blue:#1F6FB5;
+  --dark-navy:#0A1F4F;
+
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+
+  --white:#FFFFFF;
+  --light-grey:#E6EAF2;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--deep-blue);
+  color:var(--white);
+}
+
+/* ================= NAVBAR ================= */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:var(--dark-navy);
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  font-weight:800;
+  font-size:20px;
+}
+
+.logo span{
+  color:var(--neon-green);
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  color:var(--white);
+  text-decoration:none;
+  font-size:14px;
+}
+
+.nav-links a:hover{
+  color:var(--neon-green);
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  padding:150px 8% 100px;
+  background:linear-gradient(135deg,var(--dark-navy),var(--deep-blue),var(--medium-blue));
+  text-align:center;
+}
+
+.hero h1{
+  font-size:56px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:var(--neon-green);
+}
+
+.hero p{
+  max-width:750px;
+  margin:0 auto 40px;
+  font-size:18px;
+  line-height:1.7;
+  color:var(--light-grey);
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  background:var(--neon-green);
+  color:var(--dark-navy);
+  padding:14px 35px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.btn-outline{
+  border:2px solid var(--neon-green);
+  padding:14px 35px;
+  background:transparent;
+  color:var(--neon-green);
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* ================= SECTION BASE ================= */
+section{
+  padding:100px 8%;
+}
+
+/* ================= ABOUT ================= */
+.about{
+  background:var(--dark-navy);
+  text-align:center;
+}
+
+.about h2{
+  font-size:38px;
+  margin-bottom:20px;
+}
+
+.about p{
+  max-width:850px;
+  margin:auto;
+  line-height:1.8;
+  color:var(--light-grey);
+}
+
+/* ================= FEATURES ================= */
+.features{
+  background:var(--deep-blue);
+}
+
+.features h2{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:60px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+
+.feature{
+  border-left:4px solid var(--neon-green);
+  padding:20px;
+}
+
+.feature h4{
+  margin-bottom:12px;
+  color:var(--neon-green);
+}
+
+.feature p{
+  color:var(--light-grey);
+  font-size:14px;
+}
+
+/* ================= HOW IT WORKS ================= */
+.how{
+  background:var(--dark-navy);
+}
+
+.how h2{
+  text-align:center;
+  margin-bottom:70px;
+  font-size:38px;
+}
+
+.how-flow{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.step{
+  flex:1;
+  min-width:220px;
+  text-align:center;
+}
+
+.step-circle{
+  width:50px;
+  height:50px;
+  border:2px solid var(--neon-green);
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.step h4{
+  margin-bottom:10px;
+  color:var(--neon-green);
+}
+
+.step p{
+  font-size:14px;
+  color:var(--light-grey);
+}
+
+/* ================= FAQ ================= */
+.faq{
+  background:var(--deep-blue);
+}
+
+.faq h2{
+  text-align:center;
+  margin-bottom:60px;
+  font-size:38px;
+}
+
+.faq-item{
+  border-bottom:1px solid var(--medium-blue);
+  padding:20px 0;
+  cursor:pointer;
+}
+
+.faq-question{
+  display:flex;
+  justify-content:space-between;
+  font-weight:600;
+}
+
+.faq-answer{
+  display:none;
+  margin-top:10px;
+  font-size:14px;
+  color:var(--light-grey);
+}
+
+.faq-item.active .faq-answer{
+  display:block;
+}
+
+/* ================= CONTACT ================= */
+.contact{
+  background:var(--dark-navy);
+  text-align:center;
+}
+
+.contact h2{
+  font-size:38px;
+  margin-bottom:20px;
+}
+
+.contact p{
+  margin-bottom:30px;
+  color:var(--light-grey);
+}
+
+.contact button{
+  background:var(--neon-green);
+  color:var(--dark-navy);
+  padding:14px 35px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--dark-navy);
+  text-align:center;
+  padding:30px;
+  font-size:13px;
+  color:var(--light-grey);
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+
+.hero h1{
+  font-size:34px;
+}
+
+.nav-links{
+  display:none;
+}
+
+.how-flow{
+  flex-direction:column;
+  text-align:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Vigi<span>Chain</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+<!-- ================= PREMIUM NAVBAR ================= -->
+<nav class="navbar">
+
+  <div class="logo">
+    Vigi<span>Chain</span>
+  </div>
+
+  <!-- Desktop Links -->
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#security">Security</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+
+  <!-- Mobile Toggle -->
+  <div class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</nav>
+
+<style>
+
+/* ================= ROOT COLORS ================= */
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --blend-blue:#1F6FB5;
+  --dark-navy:#0A1F4F;
+
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+
+  --white:#FFFFFF;
+  --light-grey:#E6EAF2;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:75px;
+  background:linear-gradient(
+    90deg,
+    var(--dark-navy),
+    var(--deep-blue)
+  );
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 8%;
+  z-index:1000;
+}
+
+/* ================= LOGO ================= */
+.logo{
+  font-size:22px;
+  font-weight:800;
+  color:var(--white);
+}
+
+.logo span{
+  color:var(--neon-green);
+}
+
+/* ================= NAV LINKS ================= */
+.nav-links{
+  display:flex;
+  gap:35px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--light-grey);
+  font-size:14px;
+  font-weight:600;
+  position:relative;
+  transition:0.3s ease;
+}
+
+/* Underline effect */
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:var(--neon-green);
+  transition:0.3s ease;
+}
+
+.nav-links a:hover{
+  color:var(--white);
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* CTA Button */
+.nav-cta{
+  border:1px solid var(--neon-green);
+  padding:8px 18px;
+  border-radius:20px;
+}
+
+.nav-cta:hover{
+  background:var(--neon-green);
+  color:var(--dark-navy);
+}
+
+/* ================= MOBILE TOGGLE ================= */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:25px;
+  height:2px;
+  background:var(--white);
+  transition:0.3s ease;
+}
+
+/* Active Toggle Animation */
+.menu-toggle.active span:nth-child(1){
+  transform:rotate(45deg) translateY(7px);
+}
+.menu-toggle.active span:nth-child(2){
+  opacity:0;
+}
+.menu-toggle.active span:nth-child(3){
+  transform:rotate(-45deg) translateY(-7px);
+}
+
+/* ================= MOBILE MENU ================= */
+@media(max-width:900px){
+
+  .nav-links{
+    position:absolute;
+    top:75px;
+    left:0;
+    width:100%;
+    background:var(--dark-navy);
+    flex-direction:column;
+    text-align:center;
+    padding:30px 0;
+    gap:25px;
+    display:none;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+
+}
+
+</style>
+
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+toggle.addEventListener("click", ()=>{
+  toggle.classList.toggle("active");
+  navLinks.classList.toggle("show");
+});
+
+</script>
+<!-- ================= CLEAN HERO SECTION ================= -->
+<section class="hero-clean" id="home">
+
+  <div class="hero-wrapper">
+
+    <span class="hero-label">INFRASTRUCTURE • SECURITY • SCALE</span>
+
+    <h1 class="hero-title">
+      Powering <span>Secure Digital</span><br>
+      Ecosystems Worldwide
+    </h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-text">
+      Built for enterprises that demand verified performance,
+      secure architecture, and measurable operational impact.
+      Designed to scale across industries without compromise.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#features" class="btn-solid">Explore Platform</a>
+      <a href="#contact" class="btn-border">Request Access</a>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+:root{
+  --deep-blue:#0D2C6C;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --white:#FFFFFF;
+}
+
+/* SECTION */
+.hero-clean{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(10,31,79,0.85), rgba(17, 64, 159, 0.85)),
+    url("1.1.1.1.jpeg");
+  background-size:cover;
+  background-position:center;/
+  display:flex;
+  align-items:center;
+  padding:140px 8%;
+  color:var(--white);
+}
+
+/* WRAPPER */
+.hero-wrapper{
+  max-width:650px;
+}
+
+/* LABEL */
+.hero-label{
+  font-size:12px;
+  letter-spacing:0.4em;
+  font-weight:700;
+  color:var(--neon-green);
+}
+
+/* TITLE */
+.hero-title{
+  font-size:58px;
+  font-weight:900;
+  line-height:1.1;
+  margin:25px 0 20px;
+}
+
+.hero-title span{
+  color:var(--neon-green);
+}
+
+/* DIVIDER */
+.hero-divider{
+  width:90px;
+  height:4px;
+  background:var(--neon-green);
+  margin-bottom:30px;
+}
+
+/* TEXT */
+.hero-text{
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:45px;
+  color:#E6EAF2;
+}
+
+/* BUTTONS */
+.hero-buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn-solid{
+  background:var(--neon-green);
+  color:var(--dark-navy);
+  padding:16px 40px;
+  text-decoration:none;
+  font-weight:800;
+  transition:0.3s;
+}
+
+.btn-solid:hover{
+  background:#2bd06a;
+}
+
+.btn-border{
+  border:2px solid var(--white);
+  padding:16px 40px;
+  text-decoration:none;
+  font-weight:800;
+  color:var(--white);
+  transition:0.3s;
+}
+
+.btn-border:hover{
+  background:var(--white);
+  color:var(--dark-navy);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+  .hero-clean{
+    padding:100px 20px;
+    text-align:center;
+  }
+
+  .hero-wrapper{
+    margin:auto;
+  }
+
+  .hero-title{
+    font-size:34px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn-solid,
+  .btn-border{
+    width:100%;
+    text-align:center;
+  }
+}
+</style>
+
+<!-- ================= NEW ABOUT SECTION ================= -->
+<section class="about-green-modern">
+
+  <div class="about-wrapper">
+
+    <!-- Small Top Label -->
+    <span class="about-label">ABOUT VIGICHAIN MEDSECURE</span>
+
+    <!-- Main Heading -->
+    <h2 class="about-title">
+      Building <span class="highlight-white">Intelligent Compliance</span><br>
+      for the <span class="highlight-dark">Future of UK MedTech</span>
+    </h2>
+
+    <div class="about-line"></div>
+
+    <!-- Main Content -->
+    <p class="about-text">
+      VigiChain MedSecure is a UK-focused SaaS RegTech platform engineered to modernise
+      post-market surveillance (PMS) for medical device manufacturers operating under
+      the strengthened MHRA 2025 regulatory framework.
+    </p>
+
+    <p class="about-text">
+      The platform replaces fragmented spreadsheets and manual vigilance systems
+      with an integrated infrastructure combining predictive AI monitoring,
+      blockchain-backed audit trails, and automated smart-contract reporting.
+    </p>
+
+    <p class="about-text">
+      Designed specifically for SMEs, VigiChain embeds compliance into daily
+      operational workflows — enabling real-time trend detection, structured
+      PSUR/PMSR generation, CAPA automation, and regulator-ready documentation.
+    </p>
+
+    <!-- Strong Statement Line -->
+    <div class="about-statement">
+      Compliance is no longer reactive.  
+      <span>It is continuous, automated, and intelligent.</span>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* ================= COLORS ================= */
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+  --light-grey:#E6EAF2;
+}
+
+/* ================= SECTION ================= */
+.about-green-modern{
+  background:var(--soft-green);
+  padding:110px 8%;
+  position:relative;
+  overflow:hidden;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* subtle layered effect */
+.about-green-modern::before{
+  content:"";
+  position:absolute;
+  top:-120px;
+  right:-120px;
+  width:300px;
+  height:300px;
+  background:var(--neon-green);
+  opacity:0.15;
+  border-radius:50%;
+}
+
+/* wrapper */
+.about-wrapper{
+  max-width:850px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* small label */
+.about-label{
+  font-size:12px;
+  letter-spacing:0.35em;
+  font-weight:800;
+  color:var(--dark-navy);
+  display:inline-block;
+  margin-bottom:25px;
+}
+
+/* title */
+.about-title{
+  font-size:44px;
+  font-weight:900;
+  line-height:1.15;
+  color:var(--dark-navy);
+  margin-bottom:25px;
+}
+
+.highlight-white{
+  color:var(--white);
+}
+
+.highlight-dark{
+  color:var(--deep-blue);
+}
+
+/* divider line */
+.about-line{
+  width:120px;
+  height:4px;
+  background:var(--deep-blue);
+  margin-bottom:40px;
+}
+
+/* paragraph */
+.about-text{
+  font-size:17px;
+  line-height:1.75;
+  color:var(--dark-navy);
+  margin-bottom:22px;
+}
+
+/* strong statement */
+.about-statement{
+  margin-top:40px;
+  font-size:20px;
+  font-weight:800;
+  color:var(--dark-navy);
+  border-left:4px solid var(--deep-blue);
+  padding-left:20px;
+  line-height:1.6;
+}
+
+.about-statement span{
+  display:block;
+  color:var(--deep-blue);
+  margin-top:6px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+
+  .about-green-modern{
+    padding:80px 20px;
+  }
+
+  .about-title{
+    font-size:28px;
+  }
+
+  .about-text{
+    font-size:14px;
+  }
+
+  .about-statement{
+    font-size:16px;
+  }
+}
+
+</style>
+<!-- ================= FOUNDER SECTION ================= -->
+<section class="founder-premium">
+
+  <div class="founder-container">
+
+    <!-- Heading -->
+    <div class="founder-head">
+      <span class="founder-tag">LEADERSHIP • REGULATORY INTELLIGENCE • INNOVATION</span>
+
+      <h2 class="founder-title">
+        Vision Behind <span class="blue">VigiChain</span> 
+        <span class="green">MedSecure</span>
+      </h2>
+
+      <div class="founder-line"></div>
+    </div>
+
+    <!-- Content Layout -->
+    <div class="founder-grid">
+
+      <!-- Profile Card -->
+      <div class="founder-profile">
+        <div class="profile-circle">JR</div>
+
+        <h3>Jayesh R. Bachhav</h3>
+        <span class="founder-role">
+          Founder • Pharmacovigilance & PMS Specialist • RegTech Architect
+        </span>
+
+        <p class="founder-quote">
+          “Regulatory compliance should be automated, intelligent, 
+          and audit-ready — not manual and reactive.”
+        </p>
+      </div>
+
+      <!-- Founder Content -->
+      <div class="founder-content">
+
+        <p>
+          Jayesh R. Bachhav brings over four years of specialised experience in 
+          pharmacovigilance and post-market surveillance across EU MDR, FDA, 
+          and MHRA regulatory frameworks. His professional journey spans 
+          clinical evaluation reporting, vigilance documentation, CAPA integration, 
+          regulatory submissions, and audit readiness preparation.
+        </p>
+
+        <p>
+          With direct exposure to evolving UK PMS regulations under SI 2024/1368, 
+          he recognised a critical infrastructure gap for SMEs struggling to 
+          operationalise continuous surveillance and trend reporting. 
+          This insight led to the creation of VigiChain MedSecure — 
+          a cloud-first, AI-driven compliance platform.
+        </p>
+
+        <p>
+          By integrating predictive AI vigilance, blockchain-backed audit trails, 
+          and smart contract automation, his vision transforms PMS from 
+          reactive documentation into proactive, real-time compliance infrastructure.
+        </p>
+
+        <!-- Leadership Pillars -->
+        <div class="founder-pillars">
+          <span>UK MHRA 2025 Alignment</span>
+          <span>AI-Powered Predictive Vigilance</span>
+          <span>Blockchain Audit Integrity</span>
+          <span>Smart Contract Compliance</span>
+          <span>SME-Centric SaaS Model</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* ================= COLORS ================= */
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --blend-blue:#1F6FB5;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+  --light-grey:#E6EAF2;
+}
+
+/* SECTION */
+.founder-premium{
+  background:linear-gradient(135deg,var(--dark-navy),var(--deep-blue));
+  padding:90px 8%;
+  color:var(--white);
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* HEADING */
+.founder-head{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.founder-tag{
+  font-size:12px;
+  letter-spacing:0.35em;
+  color:var(--soft-green);
+  font-weight:700;
+}
+
+.founder-title{
+  font-size:40px;
+  font-weight:900;
+  margin:18px 0 15px;
+}
+
+.founder-title .blue{
+  color:var(--blend-blue);
+}
+
+.founder-title .green{
+  color:var(--neon-green);
+}
+
+.founder-line{
+  width:120px;
+  height:4px;
+  background:var(--soft-green);
+  margin:0 auto;
+  border-radius:10px;
+}
+
+/* GRID */
+.founder-grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:60px;
+  align-items:start;
+}
+
+/* PROFILE */
+.founder-profile{
+  text-align:center;
+  background:rgba(255,255,255,0.04);
+  padding:35px 25px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.profile-circle{
+  width:110px;
+  height:110px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--medium-blue),var(--neon-green));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  font-weight:900;
+  color:var(--dark-navy);
+}
+
+.founder-profile h3{
+  margin-bottom:6px;
+}
+
+.founder-role{
+  font-size:13px;
+  color:var(--soft-green);
+  display:block;
+  margin-bottom:18px;
+}
+
+.founder-quote{
+  font-style:italic;
+  font-size:14px;
+  color:var(--light-grey);
+}
+
+/* CONTENT */
+.founder-content p{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:18px;
+  color:var(--light-grey);
+}
+
+/* PILLARS */
+.founder-pillars{
+  margin-top:25px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.founder-pillars span{
+  font-size:12px;
+  padding:7px 14px;
+  border-radius:30px;
+  background:rgba(62,234,122,0.15);
+  border:1px solid var(--soft-green);
+  color:var(--soft-green);
+  transition:0.3s ease;
+}
+
+.founder-pillars span:hover{
+  background:var(--neon-green);
+  color:var(--dark-navy);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .founder-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .founder-title{
+    font-size:26px;
+  }
+
+  .founder-content p{
+    font-size:14px;
+  }
+
+}
+
+</style>
+<!-- ================= ADVANCED FEATURES SECTION ================= -->
+<section class="features-advanced">
+
+  <div class="features-wrapper">
+
+    <!-- LEFT SIDE CONTENT -->
+    <div class="features-left">
+
+      <span class="features-mini">CORE PLATFORM CAPABILITIES</span>
+
+      <h2 class="features-title">
+        Infrastructure Built for
+        <span>Trust, Scale & Control</span>
+      </h2>
+
+      <div class="features-divider"></div>
+
+      <p class="features-description">
+        The platform is designed as an intelligent compliance engine —
+        combining automation, verification integrity, and predictive
+        monitoring into a single secure infrastructure layer.
+      </p>
+
+      <p class="features-description">
+        Every module is engineered to reduce operational risk,
+        eliminate reporting gaps, and provide real-time
+        performance visibility across regulated environments.
+      </p>
+
+    </div>
+
+    <!-- RIGHT SIDE FEATURE STACK -->
+    <div class="features-right">
+
+      <div class="feature-block">
+        <div class="feature-icon">🛡️</div>
+        <div>
+          <h4>Real-Time Risk Intelligence</h4>
+          <p>
+            Advanced monitoring algorithms detect operational anomalies,
+            compliance deviations, and potential regulatory exposure
+            before escalation occurs.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <div class="feature-icon">🔗</div>
+        <div>
+          <h4>Immutable Audit Framework</h4>
+          <p>
+            Blockchain-backed audit logging ensures complete traceability
+            of every transaction and validation checkpoint.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <div class="feature-icon">⚙️</div>
+        <div>
+          <h4>Structured Workflow Automation</h4>
+          <p>
+            Automated governance pipelines streamline documentation,
+            corrective action procedures, and compliance cycles.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <div class="feature-icon">🔐</div>
+        <div>
+          <h4>Enterprise Security Architecture</h4>
+          <p>
+            Multi-layer encryption, role-based access control,
+            and zero-trust validation protocols protect infrastructure.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* ================= COLORS ================= */
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+}
+
+/* SECTION */
+.features-advanced{
+  background:var(--soft-green);
+  padding:110px 8%;
+  font-family:Arial, Helvetica, sans-serif;
+  position:relative;
+  overflow:hidden;
+}
+
+/* subtle background design */
+.features-advanced::before{
+  content:"";
+  position:absolute;
+  right:-120px;
+  top:-120px;
+  width:300px;
+  height:300px;
+  background:var(--neon-green);
+  opacity:0.15;
+  border-radius:50%;
+}
+
+.features-wrapper{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  max-width:1200px;
+  margin:auto;
+  align-items:start;
+  position:relative;
+  z-index:2;
+}
+
+/* LEFT SIDE */
+.features-mini{
+  font-size:12px;
+  letter-spacing:0.4em;
+  font-weight:800;
+  color:var(--deep-blue);
+  display:block;
+  margin-bottom:20px;
+}
+
+.features-title{
+  font-size:44px;
+  font-weight:900;
+  color:var(--dark-navy);
+  line-height:1.2;
+  margin-bottom:25px;
+}
+
+.features-title span{
+  color:var(--medium-blue);
+}
+
+.features-divider{
+  width:120px;
+  height:4px;
+  background:linear-gradient(to right,var(--deep-blue),var(--medium-blue));
+  margin-bottom:30px;
+}
+
+.features-description{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--dark-navy);
+  margin-bottom:20px;
+}
+
+/* RIGHT SIDE */
+.features-right{
+  display:flex;
+  flex-direction:column;
+  gap:35px;
+}
+
+/* FEATURE BLOCK */
+.feature-block{
+  display:flex;
+  gap:18px;
+  padding-left:20px;
+  border-left:4px solid var(--deep-blue);
+  transition:0.3s ease;
+  align-items:flex-start;
+}
+
+.feature-block:hover{
+  border-left:4px solid var(--neon-green);
+  transform:translateX(8px);
+}
+
+/* ICON */
+.feature-icon{
+  font-size:22px;
+  background:var(--white);
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  flex-shrink:0;
+}
+
+/* HEADING */
+.feature-block h4{
+  font-size:18px;
+  font-weight:800;
+  color:var(--deep-blue);
+  margin-bottom:8px;
+}
+
+.feature-block p{
+  font-size:14px;
+  line-height:1.6;
+  color:var(--dark-navy);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .features-wrapper{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .features-title{
+    font-size:28px;
+  }
+
+  .features-description{
+    font-size:14px;
+  }
+
+  .feature-block{
+    padding-left:10px;
+  }
+
+}
+
+</style>
+
+<!-- ================= COMPACT HOW IT WORKS ================= -->
+<section class="how-compact">
+
+  <div class="how-wrap">
+
+    <h2 class="how-heading">
+      How <span>VigiChain</span> Operates
+    </h2>
+
+    <p class="how-intro">
+      VigiChain integrates AI-driven monitoring, blockchain-backed audit logging,
+      and automated compliance workflows into a unified regulatory intelligence layer
+      designed for predictive oversight and structured reporting.
+    </p>
+
+    <div class="how-flow">
+
+      <!-- STEP 1 -->
+      <div class="step">
+        <div class="icon">📥</div>
+        <h4>Secure Data Intake</h4>
+        <p>
+          Device signals, inspection inputs, and regulatory data streams
+          are encrypted and structured for analytical processing.
+        </p>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <!-- STEP 2 -->
+      <div class="step">
+        <div class="icon">🧠</div>
+        <h4>AI Risk Evaluation</h4>
+        <p>
+          Machine-learning models detect anomaly patterns,
+          compliance deviations, and predictive risk signals.
+        </p>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <!-- STEP 3 -->
+      <div class="step">
+        <div class="icon">⛓</div>
+        <h4>Immutable Logging</h4>
+        <p>
+          All validated activity is recorded on blockchain-backed
+          audit infrastructure ensuring tamper-proof traceability.
+        </p>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <!-- STEP 4 -->
+      <div class="step">
+        <div class="icon">📑</div>
+        <h4>Regulatory Reporting</h4>
+        <p>
+          Automated compliance outputs generate regulator-ready
+          documentation and structured oversight dashboards.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --blend-blue:#1F6FB5;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+  --light-grey:#E6EAF2;
+}
+
+/* SECTION */
+.how-compact{
+  background:var(--dark-navy);
+  padding:80px 6%;
+  color:var(--white);
+  text-align:center;
+}
+
+.how-wrap{
+  max-width:1150px;
+  margin:auto;
+}
+
+/* HEADING */
+.how-heading{
+  font-size:36px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.how-heading span{
+  color:var(--soft-green);
+}
+
+.how-intro{
+  max-width:750px;
+  margin:0 auto 45px;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--light-grey);
+}
+
+/* FLOW */
+.how-flow{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* STEP */
+.step{
+  width:230px;
+  text-align:left;
+}
+
+.icon{
+  font-size:22px;
+  margin-bottom:8px;
+  color:var(--neon-green);
+}
+
+.step h4{
+  font-size:15px;
+  font-weight:800;
+  margin-bottom:6px;
+  color:var(--soft-green);
+}
+
+.step p{
+  font-size:13px;
+  line-height:1.6;
+  color:var(--light-grey);
+}
+
+/* ARROW */
+.arrow{
+  font-size:20px;
+  color:var(--neon-green);
+  margin-top:35px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .how-flow{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .arrow{
+    transform:rotate(90deg);
+    margin:10px 0;
+  }
+
+  .step{
+    text-align:center;
+  }
+
+  .how-heading{
+    font-size:24px;
+  }
+
+  .how-intro{
+    font-size:14px;
+  }
+}
+</style>
+<!-- ================= COMPLIANCE SECTION – PREMIUM SPLIT ================= -->
+<section class="compliance-premium">
+
+  <div class="cp-container">
+
+    <span class="cp-label">COMPLIANCE ARCHITECTURE</span>
+
+    <h2 class="cp-title">
+      Governance Built Into
+      <span>System Infrastructure</span>
+    </h2>
+
+    <!-- Divider -->
+    <div class="cp-divider"></div>
+
+    <!-- NEW BLUE HEADING (Added After Divider) -->
+    <h3 class="cp-subheading">
+      Regulatory Intelligence Integrated at Execution Level
+    </h3>
+
+    <p class="cp-intro">
+      VigiChain embeds regulatory discipline directly into execution logic.
+      Compliance is not reviewed after activity — it operates within
+      the operational framework itself.
+    </p>
+
+    <div class="cp-grid">
+
+      <!-- LEFT -->
+      <div class="cp-block">
+        <h4>Embedded Rule Logic</h4>
+        <p>
+          Policy conditions are translated into automated validation
+          sequences, preventing non-compliant actions before execution.
+        </p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="cp-block">
+        <h4>Audit-Grade Traceability</h4>
+        <p>
+          Every transaction and approval event is recorded
+          with immutable sequencing to ensure institutional transparency.
+        </p>
+      </div>
+
+      <!-- LEFT -->
+      <div class="cp-block">
+        <h4>Controlled Access Layers</h4>
+        <p>
+          Structured permission architecture restricts operational authority
+          to verified institutional roles.
+        </p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="cp-block">
+        <h4>Continuous Monitoring</h4>
+        <p>
+          Real-time compliance surveillance detects anomalies
+          and enforces regulatory consistency.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+}
+
+/* SECTION */
+.compliance-premium{
+  background:var(--soft-green);
+  padding:120px 8%;
+}
+
+/* Container */
+.cp-container{
+  max-width:1000px;
+  margin:auto;
+}
+
+/* Label */
+.cp-label{
+  font-size:12px;
+  letter-spacing:0.4em;
+  font-weight:800;
+  color:var(--deep-blue);
+}
+
+/* Title */
+.cp-title{
+  font-size:42px;
+  font-weight:900;
+  margin:18px 0 20px;
+  color:var(--dark-navy);
+}
+
+.cp-title span{
+  color:var(--medium-blue);
+}
+
+/* Divider */
+.cp-divider{
+  width:120px;
+  height:4px;
+  background:var(--medium-blue);
+  margin:25px 0 20px;
+}
+
+/* NEW BLUE SUBHEADING */
+.cp-subheading{
+  font-size:18px;
+  font-weight:800;
+  color:var(--medium-blue);
+  margin-bottom:25px;
+}
+
+/* Intro */
+.cp-intro{
+  max-width:700px;
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:60px;
+  color:var(--dark-navy);
+}
+
+/* GRID */
+.cp-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px 70px;
+}
+
+/* BLOCK */
+.cp-block h4{
+  font-size:18px;
+  font-weight:800;
+  color:var(--deep-blue);
+  margin-bottom:10px;
+  position:relative;
+}
+
+.cp-block h4::after{
+  content:"";
+  width:40px;
+  height:3px;
+  background:var(--medium-blue);
+  display:block;
+  margin-top:6px;
+}
+
+.cp-block p{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--dark-navy);
+}
+
+/* Hover Effect */
+.cp-block:hover h4{
+  color:var(--neon-green);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .compliance-premium{
+    padding:80px 20px;
+  }
+
+  .cp-title{
+    font-size:26px;
+  }
+
+  .cp-subheading{
+    font-size:16px;
+  }
+
+  .cp-intro{
+    font-size:14px;
+  }
+
+  .cp-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+</style>
+<!-- ================= SECURITY SECTION ULTRA ================= -->
+<section class="security-ultra">
+
+  <!-- Side Accent Bar -->
+  <div class="security-side-accent"></div>
+
+  <!-- Soft Corner Shape -->
+  <div class="security-corner-shape"></div>
+
+  <div class="security-wrapper">
+
+    <span class="security-label">PLATFORM SECURITY FRAMEWORK</span>
+
+    <h2 class="security-heading">
+      Advanced <span>Infrastructure Protection</span>
+    </h2>
+
+    <div class="security-heading-divider"></div>
+
+    <p class="security-intro">
+      VigiChain operates on enterprise-grade security engineering,
+      combining encrypted data channels, structured validation logic,
+      and audit-level record immutability.
+    </p>
+
+    <p class="security-intro muted">
+      Designed for regulated ecosystems, the platform safeguards
+      operational trust while maintaining scalable performance
+      and compliance-ready documentation standards.
+    </p>
+
+    <!-- Structured Model Layout -->
+    <div class="security-grid">
+
+      <div class="security-block">
+        <h4>Encrypted Architecture</h4>
+        <p>Multi-layer cryptographic protocols secure all transactional data flows.</p>
+      </div>
+
+      <div class="security-block">
+        <h4>Immutable Audit Trails</h4>
+        <p>Structured logging ensures transparent, tamper-resistant verification.</p>
+      </div>
+
+      <div class="security-block">
+        <h4>Governed Access Control</h4>
+        <p>Tier-based access logic protects system visibility and accountability.</p>
+      </div>
+
+      <div class="security-block">
+        <h4>Real-Time Monitoring</h4>
+        <p>Continuous anomaly detection preserves system stability.</p>
+      </div>
+
+      <div class="security-block">
+        <h4>Compliance Integration</h4>
+        <p>Architecture aligns with audit reporting and regulatory workflows.</p>
+      </div>
+
+      <div class="security-block">
+        <h4>Scalable Security Design</h4>
+        <p>Infrastructure adapts to high-volume operational growth.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --blend-blue:#1F6FB5;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+  --light-grey:#E6EAF2;
+}
+
+/* SECTION */
+.security-ultra{
+  position:relative;
+  background:linear-gradient(145deg,var(--dark-navy),var(--deep-blue));
+  padding:140px 8%;
+  color:var(--white);
+  overflow:hidden;
+}
+
+/* Vertical Accent */
+.security-side-accent{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:6px;
+  background:var(--neon-green);
+}
+
+/* Corner Design */
+.security-corner-shape{
+  position:absolute;
+  top:0;
+  right:0;
+  width:200px;
+  height:200px;
+  background:var(--soft-green);
+  opacity:0.06;
+  clip-path:polygon(100% 0, 0 0, 100% 100%);
+}
+
+/* Wrapper */
+.security-wrapper{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+}
+
+/* Label */
+.security-label{
+  font-size:12px;
+  letter-spacing:0.4em;
+  font-weight:800;
+  color:var(--neon-green);
+}
+
+/* Heading */
+.security-heading{
+  font-size:46px;
+  font-weight:900;
+  margin:20px 0 15px;
+}
+
+.security-heading span{
+  color:var(--soft-green);
+}
+
+/* Divider */
+.security-heading-divider{
+  width:140px;
+  height:3px;
+  background:var(--neon-green);
+  margin-bottom:35px;
+}
+
+/* Intro */
+.security-intro{
+  max-width:800px;
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:15px;
+  color:var(--light-grey);
+}
+
+.security-intro.muted{
+  margin-bottom:60px;
+  opacity:0.85;
+}
+
+/* Grid Layout */
+.security-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:50px 70px;
+}
+
+/* Block */
+.security-block{
+  position:relative;
+  padding-left:20px;
+  transition:0.3s ease;
+}
+
+/* Decorative Line */
+.security-block::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:6px;
+  height:6px;
+  background:var(--neon-green);
+  border-radius:50%;
+  box-shadow:0 0 12px var(--neon-green);
+}
+
+/* Hover Depth */
+.security-block:hover{
+  transform:translateY(-4px);
+}
+
+/* Title */
+.security-block h4{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:8px;
+  color:var(--white);
+}
+
+/* Text */
+.security-block p{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--light-grey);
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .security-ultra{
+    padding:90px 20px;
+  }
+
+  .security-heading{
+    font-size:28px;
+  }
+
+  .security-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+}
+</style>
+
+<!-- ================= PREMIUM FAQ SECTION ================= -->
+<section class="faq-green">
+
+  <div class="faq-wrapper">
+
+    <span class="faq-mini">TRUST • SECURITY • CLARITY</span>
+
+    <h2 class="faq-heading">
+      Platform <span>Questions</span> Answered
+    </h2>
+
+    <div class="faq-divider"></div>
+
+    <p class="faq-sub">
+      Clear insights into verification logic, infrastructure design,
+      regulatory structure, and long-term scalability.
+    </p>
+
+    <!-- FAQ ITEMS -->
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How does the system verify transactions?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Every transaction is processed through structured validation layers,
+          ensuring only confirmed, authorised and traceable actions are executed.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Is the infrastructure enterprise ready?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Yes. The platform architecture is designed for institutional scaling,
+          multi-layer governance, and secure integration environments.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          How secure is the platform?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Encryption protocols, audit sequencing, and role-based access control
+          ensure secure and compliant operational execution.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Can it integrate with existing systems?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          API-enabled framework allows seamless integration with
+          monitoring, reporting and regulatory systems.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+:root{
+  --deep-blue:#0D2C6C;
+  --medium-blue:#154C9C;
+  --dark-navy:#0A1F4F;
+  --neon-green:#3EEA7A;
+  --soft-green:#6AF2A3;
+  --white:#FFFFFF;
+}
+
+/* SECTION */
+.faq-green{
+  background:var(--soft-green);
+  padding:100px 8%;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* WRAPPER */
+.faq-wrapper{
+  max-width:850px;
+  margin:auto;
+}
+
+/* MINI */
+.faq-mini{
+  font-size:12px;
+  letter-spacing:0.4em;
+  font-weight:800;
+  color:var(--deep-blue);
+}
+
+/* HEADING */
+.faq-heading{
+  font-size:42px;
+  font-weight:900;
+  margin:15px 0 10px;
+  color:var(--dark-navy);
+}
+
+.faq-heading span{
+  color:var(--medium-blue);
+}
+
+/* DIVIDER */
+.faq-divider{
+  width:120px;
+  height:4px;
+  background:var(--medium-blue);
+  margin:20px 0 25px;
+}
+
+/* SUBTEXT */
+.faq-sub{
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:50px;
+  color:var(--dark-navy);
+}
+
+/* LIST */
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* ITEM */
+.faq-item{
+  background:var(--white);
+  padding:18px 22px;
+  border-left:6px solid var(--deep-blue);
+  transition:0.3s ease;
+  cursor:pointer;
+}
+
+.faq-item:hover{
+  border-left:6px solid var(--neon-green);
+}
+
+/* QUESTION */
+.faq-question{
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+  font-size:16px;
+  color:var(--deep-blue);
+}
+
+.faq-question span{
+  font-size:20px;
+  color:var(--medium-blue);
+  transition:0.3s;
+}
+
+/* ANSWER */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--dark-navy);
+  transition:0.4s ease;
+  opacity:0;
+}
+
+.faq-item.active .faq-answer{
+  max-height:200px;
+  margin-top:12px;
+  opacity:1;
+}
+
+.faq-item.active .faq-question span{
+  transform:rotate(45deg);
+  color:var(--neon-green);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .faq-green{
+    padding:70px 20px;
+  }
+  .faq-heading{
+    font-size:26px;
+  }
+  .faq-sub{
+    font-size:14px;
+  }
+}
+</style>
+
+<script>
+document.querySelectorAll(".faq-item").forEach(item=>{
+  item.addEventListener("click",()=>{
+    item.classList.toggle("active");
+  });
+});
+</script>
+
+<!-- ================= STRATEGIC PLATFORM REQUEST ================= -->
+<section class="strategic-request" id="request">
+
+  <!-- Top Signature Line -->
+  <div class="signature-line"></div>
+
+  <!-- Subtle Structure Background -->
+  <div class="structure-overlay"></div>
+
+  <div class="request-wrapper">
+
+    <!-- LEFT CONTENT -->
+    <div class="request-left">
+
+      <span class="request-mini">EXECUTIVE ACCESS</span>
+
+      <h2>
+        Request <span>Strategic Platform</span><br>
+        Evaluation & Institutional Review
+      </h2>
+
+      <div class="request-divider"><span></span></div>
+
+      <p>
+        VigiChain MedSecure is engineered for regulated healthcare
+        ecosystems requiring structured pharmacovigilance,
+        lifecycle validation, and audit-ready reporting infrastructure.
+      </p>
+
+      <p>
+        This platform evaluation provides institutional stakeholders
+        with architecture visibility, governance mapping,
+        compliance workflow demonstration,
+        and structured implementation clarity.
+      </p>
+
+      <div class="trust-strip">
+        Regulatory Integrity • Scalable Architecture • Institutional Deployment
+      </div>
+
+    </div>
+
+    <!-- RIGHT ACTION PANEL -->
+    <div class="request-right">
+
+      <div class="panel-heading">
+        Platform Evaluation Request
+      </div>
+
+      <div class="panel-divider"></div>
+
+      <div class="panel-features">
+        <div>Full System Walkthrough</div>
+        <div>Compliance & Governance Mapping</div>
+        <div>Integration Strategy Discussion</div>
+        <div>Deployment Timeline Framework</div>
+      </div>
+
+      <div class="panel-note">
+        Designed for healthcare institutions, regulatory teams,
+        and enterprise stakeholders seeking structured clarity.
+      </div>
+
+<button class="request-btn-pulse">
+  Request Strategy
+</button>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+    .request-btn-pulse{
+  padding:14px 36px;
+  background:#0A1F4F;
+  color:#FFFFFF;
+  border:2px solid #3EEA7A;
+  font-weight:700;
+  cursor:pointer;
+  animation:pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder{
+  0%{ box-shadow:0 0 0px #3EEA7A; }
+  50%{ box-shadow:0 0 15px #3EEA7A; }
+  100%{ box-shadow:0 0 0px #3EEA7A; }
+}
+:root{
+  --royal:#0D2C6C;
+  --mid:#154C9C;
+  --navy:#0A1F4F;
+  --green:#3EEA7A;
+  --softgreen:#6AF2A3;
+  --white:#FFFFFF;
+  --light:#E6EAF2;
+}
+
+/* SECTION */
+.strategic-request{
+  position:relative;
+  background:linear-gradient(135deg,var(--navy),var(--royal));
+  padding:110px 6%;
+  color:var(--white);
+  overflow:hidden;
+}
+
+/* Signature Top Line */
+.signature-line{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:var(--green);
+}
+
+/* Structured Overlay */
+.structure-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;
+}
+
+/* WRAPPER */
+.request-wrapper{
+  position:relative;
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.3fr 0.9fr;
+  gap:70px;
+}
+
+/* LEFT */
+.request-mini{
+  font-size:11px;
+  letter-spacing:0.35em;
+  color:var(--green);
+  font-weight:700;
+}
+
+.request-left h2{
+  font-size:36px;
+  margin:18px 0;
+  font-weight:900;
+  line-height:1.2;
+}
+
+.request-left h2 span{
+  color:var(--green);
+}
+
+.request-divider{
+  width:140px;
+  height:2px;
+  background:rgba(255,255,255,0.2);
+  margin-bottom:20px;
+  position:relative;
+}
+
+.request-divider span{
+  position:absolute;
+  width:45px;
+  height:100%;
+  background:var(--green);
+}
+
+.request-left p{
+  font-size:15px;
+  line-height:1.7;
+  color:var(--light);
+  margin-bottom:14px;
+}
+
+/* Trust Strip */
+.trust-strip{
+  margin-top:18px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--green);
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:12px;
+}
+
+/* RIGHT PANEL */
+.request-right{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(6px);
+}
+
+/* Panel Heading */
+.panel-heading{
+  font-size:18px;
+  font-weight:800;
+  color:var(--green);
+  margin-bottom:12px;
+}
+
+.panel-divider{
+  width:40px;
+  height:2px;
+  background:var(--white);
+  opacity:0.4;
+  margin-bottom:16px;
+}
+
+/* Features */
+.panel-features{
+  display:grid;
+  gap:8px;
+  font-size:14px;
+  color:var(--light);
+  margin-bottom:18px;
+}
+
+.panel-features div{
+  position:relative;
+  padding-left:12px;
+}
+
+.panel-features div::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:7px;
+  width:6px;
+  height:6px;
+  background:var(--green);
+}
+
+/* Note */
+.panel-note{
+  font-size:12px;
+  color:var(--light);
+  margin-bottom:18px;
+}
+
+/* Button */
+.request-right button{
+  width:100%;
+  padding:14px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--green),var(--softgreen));
+  border:none;
+  cursor:pointer;
+  color:var(--navy);
+  transition:0.3s ease;
+}
+
+.request-right button:hover{
+  transform:translateY(-2px);
+}
+/* ================= BUTTON ================= */
+.request-btn{
+  position:relative;
+  padding:14px 32px;
+  font-weight:700;
+  background:transparent;
+  color:var(--white);
+  border:none;
+  cursor:pointer;
+  overflow:hidden;
+  z-index:1;
+}
+
+/* Real Border Frame */
+.request-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px; /* border thickness */
+  border-radius:6px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--green),
+    transparent
+  );
+  background-size:200% 100%;
+  animation:btnBorderMove 3s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events:none;
+}
+
+/* Button Hover */
+.request-btn:hover{
+  background:var(--green);
+  color:var(--dark-blue);
+}
+
+/* Border Animation */
+@keyframes btnBorderMove{
+  0%{
+    background-position:0% 0%;
+  }
+  100%{
+    background-position:200% 0%;
+  }
+}
+/* MOBILE */
+@media(max-width:900px){
+  .request-wrapper{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+  .strategic-request{
+    padding:80px 20px;
+  }
+  .request-left h2{
+    font-size:24px;
+  }
+}
+/* RIGHT PANEL */
+.request-right{
+  position:relative;
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(6px);
+  overflow:hidden;
+}
+
+/* Travelling Border Layer */
+.request-right::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:1px; /* border thickness */
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--green),
+    transparent
+  );
+  background-size:200% 100%;
+  animation:borderMove 3s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events:none;
+}
+
+/* Border Animation */
+@keyframes borderMove{
+  0%{
+    background-position:0% 0%;
+  }
+  100%{
+    background-position:200% 0%;
+  }
+}
+
+</style>
+
+<script>
+function openMail(){
+  window.location.href =
+  "mailto:info@vigichain.com" +
+  "?subject=Strategic%20Platform%20Evaluation%20Request" +
+  "&body=Hello%20Team,%0D%0A%0D%0AWe%20would%20like%20to%20request%20a%20strategic%20platform%20evaluation.%0D%0A%0D%0AOrganisation:%0D%0ACompliance%20Focus:%0D%0AContact%20Details:%0D%0A%0D%0ARegards,";
+}
+</script>
+
+<footer class="green-footer">
+
+  <!-- Decorative Layers -->
+  <div class="footer-glow"></div>
+  <div class="footer-diagonal"></div>
+  <div class="footer-grid"></div>
+
+  <!-- Animated Top Strip -->
+  <div class="footer-top-line">
+    <span></span>
+  </div>
+
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <h3>Vigi<span>Chain</span></h3>
+      <p>
+        Securing pharmaceutical supply chains through 
+        verified blockchain traceability infrastructure.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="footer-links">
+      <a href="#">Platform</a>
+      <a href="#">Security</a>
+      <a href="#">Compliance</a>
+      <a href="#">Partners</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!-- Live Status -->
+    <div class="footer-status">
+      <span class="status-dot"></span>
+      Network Live & Verified
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-line"></div>
+    <p>© 2026 VigiChain • Secure Medical Infrastructure Layer</p>
+  </div>
+
+</footer>
+
+<style>
+:root{
+  --green:#3EEA7A;
+  --green-soft:#6AF2A3;
+  --navy:#0A1F4F;
+  --white:#FFFFFF;
+  --light:#E6EAF2;
+}
+
+/* ================= MAIN ================= */
+.green-footer{
+  background:linear-gradient(135deg,var(--green),var(--green-soft));
+  padding:50px 8% 25px;
+  color:var(--navy);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Soft Radial Glow */
+.footer-glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:radial-gradient(circle,rgba(255,255,255,0.3),transparent 70%);
+  top:-150px;
+  right:-120px;
+  border-radius:50%;
+}
+
+/* Subtle Diagonal Accent */
+.footer-diagonal{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:240px;
+  height:240px;
+  background:rgba(10,31,79,0.08);
+  transform:rotate(45deg);
+}
+
+/* Subtle Grid Texture */
+.footer-grid{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(10,31,79,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,31,79,0.05) 1px, transparent 1px);
+  background-size:40px 40px;
+  opacity:0.3;
+}
+
+/* Animated Top Line */
+.footer-top-line{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:rgba(10,31,79,0.3);
+  overflow:hidden;
+}
+.footer-top-line span{
+  display:block;
+  width:120px;
+  height:100%;
+  background:var(--navy);
+  animation:slide 4s infinite linear;
+}
+@keyframes slide{
+  0%{transform:translateX(-120px);}
+  100%{transform:translateX(100vw);}
+}
+
+/* ================= CONTENT ================= */
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:35px;
+  position:relative;
+  z-index:2;
+}
+
+/* BRAND */
+.footer-brand h3{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.footer-brand span{
+  color:var(--white);
+}
+.footer-brand p{
+  font-size:12px;
+  margin-top:6px;
+  max-width:280px;
+  line-height:1.6;
+}
+
+/* LINKS */
+.footer-links{
+  display:flex;
+  gap:26px;
+  flex-wrap:wrap;
+}
+.footer-links a{
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  color:var(--navy);
+  position:relative;
+  transition:0.3s;
+}
+
+/* Underline Animation */
+.footer-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--navy);
+  transition:0.3s;
+}
+.footer-links a:hover::after{
+  width:100%;
+}
+
+/* STATUS */
+.footer-status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:700;
+  background:rgba(255,255,255,0.25);
+  padding:6px 14px;
+  border-radius:20px;
+  backdrop-filter:blur(6px);
+}
+
+/* Pulse Dot */
+.status-dot{
+  width:8px;
+  height:8px;
+  background:var(--navy);
+  border-radius:50%;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(10,31,79,0.6);}
+  70%{box-shadow:0 0 0 8px rgba(10,31,79,0);}
+  100%{box-shadow:0 0 0 0 rgba(10,31,79,0);}
+}
+
+/* BOTTOM */
+.footer-bottom{
+  margin-top:25px;
+  text-align:center;
+  font-size:11px;
+  position:relative;
+  z-index:2;
+}
+
+.footer-line{
+  width:100%;
+  height:1px;
+  background:rgba(10,31,79,0.25);
+  margin-bottom:10px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .footer-container{
+    flex-direction:column;
+    text-align:center;
+  }
+  .footer-links{
+    justify-content:center;
+  }
+  .footer-brand p{
+    max-width:100%;
+  }
+}
+</style>
+
+<script>
+function toggleFaq(el){
+  el.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
