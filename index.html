@@ -2184,9 +2184,10 @@ document.querySelectorAll(".faq-item").forEach(item=>{
         and enterprise stakeholders seeking structured clarity.
       </div>
 
-<button class="request-btn-pulse">
+<button class="request-btn-pulse" id="strategyBtn">
   Request Strategy
 </button>
+
     </div>
 
   </div>
@@ -2489,47 +2490,20 @@ document.querySelectorAll(".faq-item").forEach(item=>{
 </style>
 
 <script>
-function openMail(){
-  window.location.href =
-  "mailto:info@vigichain.com" +
-  "?subject=Strategic%20Platform%20Evaluation%20Request" +
-  "&body=Hello%20Team,%0D%0A%0D%0AWe%20would%20like%20to%20request%20a%20strategic%20platform%20evaluation.%0D%0A%0D%0AOrganisation:%0D%0ACompliance%20Focus:%0D%0AContact%20Details:%0D%0A%0D%0ARegards,";
-}
 document.addEventListener("DOMContentLoaded", function(){
 
-  const faqItems = document.querySelectorAll(".faq-card");
+  const strategyBtn = document.getElementById("strategyBtn");
 
-  faqItems.forEach(item => {
-
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-
-    question.addEventListener("click", () => {
-
-      // Close all others (optional professional behavior)
-      faqItems.forEach(otherItem => {
-        if(otherItem !== item){
-          otherItem.classList.remove("active");
-          otherItem.querySelector(".faq-answer").style.maxHeight = null;
-        }
-      });
-
-      // Toggle current
-      item.classList.toggle("active");
-
-      if(item.classList.contains("active")){
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      } else {
-        answer.style.maxHeight = null;
-      }
-
-    });
-
+  strategyBtn.addEventListener("click", function(){
+    window.location.href =
+      "mailto:info@vigichain.com" +
+      "?subject=Strategic%20Platform%20Evaluation%20Request" +
+      "&body=Hello%20Team,%0D%0A%0D%0AWe%20would%20like%20to%20request%20a%20strategic%20platform%20evaluation.%0D%0A%0D%0AOrganisation:%0D%0ACompliance%20Focus:%0D%0AContact%20Details:%0D%0A%0D%0ARegards,";
   });
 
 });
-
 </script>
+
 
 <footer class="green-footer">
 
