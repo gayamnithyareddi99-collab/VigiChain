@@ -318,11 +318,15 @@ footer{
 <nav>
   <div class="logo">Vigi<span>Chain</span></div>
   <div class="nav-links">
+    <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#founder">Founder</a>
     <a href="#features">Features</a>
-    <a href="#how">How It Works</a>
+    <a href="#how">How</a>
+    <a href="#compliance">Compliance</a>
+    <a href="#Security">Security</a>
     <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
 <!-- ================= PREMIUM NAVBAR ================= -->
@@ -336,8 +340,12 @@ footer{
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#founder">Founder</a>
     <a href="#features">Features</a>
-    <a href="#security">Security</a>
+    <a href="#how">How</a>
+    <a href="#compliance">Compliance</a>
+    <a href="#Security">Security</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
 
@@ -547,8 +555,8 @@ toggle.addEventListener("click", ()=>{
 /* SECTION */
 .hero-clean{
   min-height:100vh;
-  background:
-    linear-gradient(rgba(10,31,79,0.85), rgba(17, 64, 159, 0.85)),
+  background:linear-gradient(rgba(10,31,79,0.85), rgba(17, 64, 159, 0.85)),
+    
     url("1.1.1.1.jpeg");
   background-size:cover;
   background-position:center;/
@@ -662,7 +670,7 @@ toggle.addEventListener("click", ()=>{
 </style>
 
 <!-- ================= NEW ABOUT SECTION ================= -->
-<section class="about-green-modern">
+<section id="about" class="about-green-modern">
 
   <div class="about-wrapper">
 
@@ -831,7 +839,7 @@ toggle.addEventListener("click", ()=>{
 
 </style>
 <!-- ================= FOUNDER SECTION ================= -->
-<section class="founder-premium">
+<section id="founder" class="founder-premium">
 
   <div class="founder-container">
 
@@ -1063,7 +1071,7 @@ toggle.addEventListener("click", ()=>{
 
 </style>
 <!-- ================= ADVANCED FEATURES SECTION ================= -->
-<section class="features-advanced">
+<section id="features" class="features-advanced">
 
   <div class="features-wrapper">
 
@@ -1303,7 +1311,7 @@ toggle.addEventListener("click", ()=>{
 </style>
 
 <!-- ================= COMPACT HOW IT WORKS ================= -->
-<section class="how-compact">
+<section id="how" class="how-compact">
 
   <div class="how-wrap">
 
@@ -1482,7 +1490,7 @@ toggle.addEventListener("click", ()=>{
 }
 </style>
 <!-- ================= COMPLIANCE SECTION – PREMIUM SPLIT ================= -->
-<section class="compliance-premium">
+<section id="compliance" class="compliance-premium">
 
   <div class="cp-container">
 
@@ -1680,7 +1688,7 @@ toggle.addEventListener("click", ()=>{
 }
 </style>
 <!-- ================= SECURITY SECTION ULTRA ================= -->
-<section class="security-ultra">
+<section id="security" class="security-ultra">
 
   <!-- Side Accent Bar -->
   <div class="security-side-accent"></div>
@@ -1905,7 +1913,7 @@ toggle.addEventListener("click", ()=>{
 </style>
 
 <!-- ================= PREMIUM FAQ SECTION ================= -->
-<section class="faq-green">
+<section id="faq" class="faq-green">
 
   <div class="faq-wrapper">
 
@@ -2114,7 +2122,7 @@ document.querySelectorAll(".faq-item").forEach(item=>{
 </script>
 
 <!-- ================= STRATEGIC PLATFORM REQUEST ================= -->
-<section class="strategic-request" id="request">
+<section class="strategic-request" id="contact">
 
   <!-- Top Signature Line -->
   <div class="signature-line"></div>
@@ -2487,6 +2495,40 @@ function openMail(){
   "?subject=Strategic%20Platform%20Evaluation%20Request" +
   "&body=Hello%20Team,%0D%0A%0D%0AWe%20would%20like%20to%20request%20a%20strategic%20platform%20evaluation.%0D%0A%0D%0AOrganisation:%0D%0ACompliance%20Focus:%0D%0AContact%20Details:%0D%0A%0D%0ARegards,";
 }
+document.addEventListener("DOMContentLoaded", function(){
+
+  const faqItems = document.querySelectorAll(".faq-card");
+
+  faqItems.forEach(item => {
+
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    question.addEventListener("click", () => {
+
+      // Close all others (optional professional behavior)
+      faqItems.forEach(otherItem => {
+        if(otherItem !== item){
+          otherItem.classList.remove("active");
+          otherItem.querySelector(".faq-answer").style.maxHeight = null;
+        }
+      });
+
+      // Toggle current
+      item.classList.toggle("active");
+
+      if(item.classList.contains("active")){
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      } else {
+        answer.style.maxHeight = null;
+      }
+
+    });
+
+  });
+
+});
+
 </script>
 
 <footer class="green-footer">
@@ -2514,11 +2556,11 @@ function openMail(){
 
     <!-- Navigation -->
     <div class="footer-links">
-      <a href="#">Platform</a>
-      <a href="#">Security</a>
-      <a href="#">Compliance</a>
-      <a href="#">Partners</a>
-      <a href="#">Contact</a>
+      <a href="#features">Platform</a>
+      <a href="#security">Security</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
     </div>
 
     <!-- Live Status -->
